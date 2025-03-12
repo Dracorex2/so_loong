@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/20 12:19:27 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/11 16:47:13 by lucmansa         ###   ########.fr       */
+/*   Created: 2025/03/11 16:11:37 by lucmansa          #+#    #+#             */
+/*   Updated: 2025/03/11 16:52:24 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
+#ifndef UTILS_H
+# define UTILS_H
 
-# define GET_NEXT_LINE_H
 # include <unistd.h>
+# include <signal.h>
+# include <unistd.h>
+# include <stdio.h>
 # include <stdlib.h>
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
-# endif
-
-char	*ft_strjoin(char *s1, char *s2, int n);
-void	ft_strlcpy(char *dst, char *src, size_t size);
-char	*get_next_line(int fd);
-int		ft_strchr(char *s, char c);
-void	*ft_calloc(size_t nmemb, size_t size);
+void	ft_putstr(int out, char *str);
+void	ft_putchar(char c);
+void	ft_putnbr(int nb);
+void	*ft_realloc(void *ptr, size_t old_size, size_t new_size);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
+size_t	ft_strlen(const char *str);
 
 #endif
