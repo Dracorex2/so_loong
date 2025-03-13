@@ -10,7 +10,7 @@ CC = gcc -Wall -Wextra -Werror -g
 CFLAGS = -lm
 MLX_FLAGS = -lX11 -lXext
 
-SRCS = main.c   ./gnl/get_next_line_utils.c      ./gnl/get_next_line.c
+SRCS = main.c  map_check.c ./gnl/get_next_line_utils.c      ./gnl/get_next_line.c  ./utils/utils.c
 OBJECTS = $(SRCS:.c=.o)
 
 BONUS_MODE = 0

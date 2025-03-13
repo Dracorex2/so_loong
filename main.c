@@ -6,13 +6,12 @@
 /*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 14:37:19 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/12 19:34:38 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/13 17:50:03 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./mlx/mlx.h"
 #include "header.h"
-#include <string.h>
 //int	main(void)
 //{
 //	void	*mlx;
@@ -29,9 +28,9 @@ void	free_map(t_game *game)
 	int	y;
 
 	y = -1;
-	while (++y < game->nbline)
-		free(game->map[y]);
-	free(game->map);
+	while (++y < game->m.height)
+		free(game->m.map[y]);
+	free(game->m.map);
 }
 
 int	fline_count(char *file)
@@ -46,7 +45,6 @@ int	fline_count(char *file)
 	while ((line = get_next_line(fd)))
 		(free(line), nb++);
 	close(fd);
-	printf("%i\n", nb);
 	return (nb);
 }
 void	fline_read(t_game *game, char *file)
@@ -56,19 +54,20 @@ void	fline_read(t_game *game, char *file)
 
 	fd = open(file, O_RDONLY);
 	y = 0;
-	game->map[y] = get_next_line(fd);
-	while (++y < game->nbline)
-		game->map[y] = get_next_line(fd);
+	game->m.map[y] = get_next_line(fd);
+	game->m.width = ft_strlen(game->m.map[y]);
+	while (++y < game->m.height)
+		game->m.map[y] = get_next_line(fd);
 	close(fd);
 }
 
-void	prnt_map(t_game game)
+void	prnt_map(t_game *game)
 {
 	int	y;
 
 	y = -1;
-	while (++y < game.nbline)
-		printf("%s\n", game.map[y]);
+	while (++y < game->m.height)
+		printf("%s\n", game->m.map[y]);
 }
 
 int	main(int argc, char **argv)
@@ -76,8 +75,10 @@ int	main(int argc, char **argv)
 	t_game game;
 
 	(void)argc;
-	game.nbline = fline_count(argv[1]);
-	game.map = calloc(game.nbline, sizeof(char *));
+	game.m.height = fline_count(argv[1]);
+	game.m.map = calloc(game.m.height, sizeof(char *));
 	fline_read(&game, argv[1]);
-	prnt_map(game);
+	prnt_map(&game);
+	printf("%i", map_checker(&game));
+	free_map(&game);
 }
