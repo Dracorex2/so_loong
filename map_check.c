@@ -6,11 +6,24 @@
 /*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:07:51 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/13 18:04:33 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/13 19:33:52 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
+
+int	is_object(char c, char *charset)
+{
+	int	i;
+
+	i = -1;
+	while (charset[++i])
+	{
+		if (charset[i] != c)
+			return (0);
+	}
+	return (1);
+}
 
 int	is_rectangle(t_game *game)
 {
@@ -22,8 +35,10 @@ int	is_rectangle(t_game *game)
 	{
 		x = -1;
 		while (game->m.map[y][++x])
-			if (x > game->m.width)
+		{
+			if (x >= game->m.width || is_object(game->m.map[y][x], "01PEC"))
 				return (0);
+		}
 	}
 	return (1);
 }
@@ -138,11 +153,12 @@ int	map_checker(t_game *game)
 		return (0);
 	if (!has_border(game))
 		return (0);
-	if (has_player(game))
+	if (!has_player(game))
 		return (0);
 	if (!has_element(game))
 		return (0);
-	if (flood_fill(map_cpy(game), game->p.y, game->p.x) != game->m.coin_count + 1)
+	if (flood_fill(map_cpy(game), game->p.y, game->p.x)
+		!= game->m.coin_count + 1)
 		return (0);
 	return (1);
 }

@@ -6,11 +6,11 @@ INCLUDE = includes/
 
 MLX_LIB = libmlx_Linux.a
 
-CC = gcc -Wall -Wextra -Werror -g
-CFLAGS = -lm
+CC = clang -Wall -Wextra -Werror -g
+CFLAGS = 
 MLX_FLAGS = -lX11 -lXext
 
-SRCS = main.c  map_check.c ./gnl/get_next_line_utils.c      ./gnl/get_next_line.c  ./utils/utils.c
+SRCS = main.c  map_check.c ./gnl/get_next_line_utils.c      ./gnl/get_next_line.c  ./utils/utils.c   mlx.c
 OBJECTS = $(SRCS:.c=.o)
 
 BONUS_MODE = 0

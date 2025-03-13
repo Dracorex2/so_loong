@@ -6,13 +6,14 @@
 /*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 16:21:39 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/13 17:51:05 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/13 19:55:08 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HEADER_H
 # define HEADER_H
 
+#include "./mlx/mlx.h"
 #include "./utils/utils.h"
 #include "./gnl/get_next_line.h"
 # include <fcntl.h>
@@ -42,6 +43,8 @@ typedef struct s_game
 	t_map		m;
 	void		*p_sprite[5];
 	void		*c_sprite[5];
+	void		*f_sprite;
+	void		*w_sprite;
 } t_game;
 
 
@@ -52,5 +55,11 @@ int	has_element(t_game *game);
 char **map_cpy(t_game *game);
 int	flood_fill(char **map, int y, int x);
 int	map_checker(t_game *game);
+
+
+//mlx
+void	mlx(t_game *game);
+int    do_draw(t_game *game);
+void    draw_obj(int x, int y, t_game *game);
 
 #endif

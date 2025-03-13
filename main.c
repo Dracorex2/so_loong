@@ -6,11 +6,10 @@
 /*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 14:37:19 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/13 17:50:03 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/13 20:01:58 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./mlx/mlx.h"
 #include "header.h"
 //int	main(void)
 //{
@@ -74,11 +73,15 @@ int	main(int argc, char **argv)
 {
 	t_game game;
 
-	(void)argc;
+	if (argc != 2)
+		return (1);
 	game.m.height = fline_count(argv[1]);
 	game.m.map = calloc(game.m.height, sizeof(char *));
 	fline_read(&game, argv[1]);
 	prnt_map(&game);
-	printf("%i", map_checker(&game));
-	free_map(&game);
+	if (!map_checker(&game))
+		return (write(2, "Map Error", 9), 1);
+	mlx(&game);
+	mlx_loop_hook(game.mlx, &do_draw, &game);
+	mlx_loop(game.mlx);
 }
