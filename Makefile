@@ -6,7 +6,7 @@ INCLUDE = includes/
 
 MLX_LIB = libmlx_Linux.a
 
-CC = clang -Wall -Wextra -Werror -g
+CC = gcc -Wall -Wextra -Werror -g
 CFLAGS = 
 MLX_FLAGS = -lX11 -lXext
 

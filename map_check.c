@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:07:51 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/13 19:33:52 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/14 17:58:57 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ int	is_object(char c, char *charset)
 	i = -1;
 	while (charset[++i])
 	{
-		if (charset[i] != c)
-			return (0);
+		if (charset[i] == c)
+			return (1);
 	}
-	return (1);
+	return (0);
 }
 
 int	is_rectangle(t_game *game)
@@ -36,7 +36,7 @@ int	is_rectangle(t_game *game)
 		x = -1;
 		while (game->m.map[y][++x])
 		{
-			if (x >= game->m.width || is_object(game->m.map[y][x], "01PEC"))
+			if (x >= game->m.width || !is_object(game->m.map[y][x], "01PEC"))
 				return (0);
 		}
 	}
@@ -120,13 +120,14 @@ char **map_cpy(t_game *game)
 	char	**cpy;
 	int		y;
 	
-	cpy = malloc(game->m.height * sizeof(char *));
+	cpy = malloc((game->m.height + 1) * sizeof(char *));
 	y = -1;
 	while (++y < game->m.height)
 	{
 		cpy[y] = malloc(game->m.width * sizeof(char));
 		ft_memcpy(cpy[y], game->m.map[y], game->m.width);
 	}
+	cpy[y] = NULL;
 	return (cpy);
 }
 
@@ -149,6 +150,8 @@ int	flood_fill(char **map, int y, int x)
 
 int	map_checker(t_game *game)
 {
+	char **map;
+
 	if (!is_rectangle(game))
 		return (0);
 	if (!has_border(game))
@@ -157,8 +160,13 @@ int	map_checker(t_game *game)
 		return (0);
 	if (!has_element(game))
 		return (0);
-	if (flood_fill(map_cpy(game), game->p.y, game->p.x)
+	map = map_cpy(game);
+	if (flood_fill(map, game->p.y, game->p.x)
 		!= game->m.coin_count + 1)
+	{
 		return (0);
+		free_map(map);
+	}
+	free_map(map);
 	return (1);
 }

@@ -6,24 +6,27 @@
 /*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 16:21:39 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/13 19:55:08 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/14 19:27:45 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HEADER_H
 # define HEADER_H
 
-#include "./mlx/mlx.h"
-#include "./utils/utils.h"
-#include "./gnl/get_next_line.h"
+# include "./mlx/mlx.h"
+# include "./utils/utils.h"
+# include "./gnl/get_next_line.h"
 # include <fcntl.h>
+# include <sys/time.h>
+# include <X11/keysym.h>
 
 typedef struct s_player
 {
 	int		x;
 	int		y;
-	char	dir;
 	int		frame_idx;
+	int		frame_p;
+	int		move;
 } t_player;
 
 typedef struct s_map
@@ -37,16 +40,21 @@ typedef struct s_map
 
 typedef struct s_game
 {
-	void		*mlx;
-	void		*win;
-	t_player	p;
-	t_map		m;
-	void		*p_sprite[5];
-	void		*c_sprite[5];
-	void		*f_sprite;
-	void		*w_sprite;
+	void			*mlx;
+	void			*win;
+	t_player		p;
+	t_map			m;
+	int				img_s;
+	void			*p_sprite[7];
+	void			*c_sprite[5];
+	void			*f_sprite;
+	void			*w_sprite;
+	void			*e_sprite[2];
+	unsigned int	tick;
 } t_game;
 
+//main
+void	free_map(char **map);
 
 //check map
 int	is_rectangle(t_game *game);
@@ -61,5 +69,8 @@ int	map_checker(t_game *game);
 void	mlx(t_game *game);
 int    do_draw(t_game *game);
 void    draw_obj(int x, int y, t_game *game);
+int	count_frame(t_game *game);
+int	destroy(t_game *game);
+int	key_press(int key, t_game *game);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 14:37:19 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/13 20:01:58 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/14 19:23:58 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@
 //	(void)mlx_win;
 //}
 
-void	free_map(t_game *game)
+void	free_map(char **map)
 {
 	int	y;
 
 	y = -1;
-	while (++y < game->m.height)
-		free(game->m.map[y]);
-	free(game->m.map);
+	while (map[++y])
+		free(map[y]);
+	free(map);
 }
 
 int	fline_count(char *file)
@@ -57,6 +57,7 @@ void	fline_read(t_game *game, char *file)
 	game->m.width = ft_strlen(game->m.map[y]);
 	while (++y < game->m.height)
 		game->m.map[y] = get_next_line(fd);
+	game->m.map[y] = NULL;
 	close(fd);
 }
 
@@ -75,13 +76,13 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 		return (1);
+	game = (t_game){0};
 	game.m.height = fline_count(argv[1]);
-	game.m.map = calloc(game.m.height, sizeof(char *));
+	game.m.map = calloc((game.m.height + 1), sizeof(char *));
 	fline_read(&game, argv[1]);
 	prnt_map(&game);
 	if (!map_checker(&game))
 		return (write(2, "Map Error", 9), 1);
 	mlx(&game);
-	mlx_loop_hook(game.mlx, &do_draw, &game);
 	mlx_loop(game.mlx);
 }
