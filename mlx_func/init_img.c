@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 19:14:44 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/17 19:26:37 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/17 22:24:47 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	try_init(t_game *game, void **dest, char *path)
 {
-	printf("%p\n", *dest);
 	*dest = mlx_xpm_file_to_image(game->mlx, path, &game->img_s, &game->img_s);
 	if (*dest == NULL)
 	{

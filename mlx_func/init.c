@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 19:11:12 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/17 18:49:58 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/17 22:24:53 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	mlx_i(t_game *game)
 {
 	game->mlx = mlx_init();
 	init_img(game);
-	printf("%i\n", game->img_s);
 	game->win = mlx_new_window(game->mlx, game->m.width * game->img_s,
 			game->m.height * game->img_s, "so long");
 	mlx_key_hook(game->win, &key_press, game);
