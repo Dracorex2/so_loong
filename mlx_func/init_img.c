@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   init_img.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 19:14:44 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/14 19:32:25 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/17 16:07:03 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./header.h"
+#include "../header.h"
 
 void	try_init(t_game *game, void **dest, char *path)
 {
@@ -22,19 +22,26 @@ void	try_init(t_game *game, void **dest, char *path)
 		exit(1);
 	}
 }
-int init_img(t_game *game)
-{
-	char	i;
-	char str[18];
 
-	try_init(game->mlx, game->f_sprite, "./img/sol.xpm");
-	try_init(game->mlx, game->w_sprite, "./img/mur.xpm");
-	i = '0' - 1;
-	ft_memcpy(str, "./img/sprite1.xpm", 18);
-	while (++i < '7')
-	{
-		str[12] = i;
-		game->p_sprite[i - '0'] = mlx_xpm_file_to_image(game->mlx, str,
-			&game->img_size, &game->img_size);
-	}
+int	init_img(t_game *game)
+{
+	game->f_sprite = mlx_xpm_file_to_image(game->mlx, "./img/sol.xpm", &game->img_s, &game->img_s);
+	game->w_sprite = mlx_xpm_file_to_image(game->mlx, "./img/mur.xpm", &game->img_s, &game->img_s);
+	game->p_sprite[0] = mlx_xpm_file_to_image(game->mlx, "./img/sprite0.xpm", &game->img_s, &game->img_s);
+	game->p_sprite[1] = mlx_xpm_file_to_image(game->mlx, "./img/sprite1.xpm", &game->img_s, &game->img_s);
+	game->p_sprite[2] = mlx_xpm_file_to_image(game->mlx, "./img/sprite2.xpm", &game->img_s, &game->img_s);
+	game->p_sprite[3] = mlx_xpm_file_to_image(game->mlx, "./img/sprite3.xpm", &game->img_s, &game->img_s);
+	game->p_sprite[4] = mlx_xpm_file_to_image(game->mlx, "./img/sprite4.xpm", &game->img_s, &game->img_s);
+	game->p_sprite[5] = mlx_xpm_file_to_image(game->mlx, "./img/sprite5.xpm", &game->img_s, &game->img_s);
+	game->p_sprite[6] = mlx_xpm_file_to_image(game->mlx, "./img/sprite6.xpm", &game->img_s, &game->img_s);
+	//try_init(game->mlx, game->f_sprite, "./img/sol.xpm");
+	//try_init(game->mlx, game->w_sprite, "./img/mur.xpm");
+	//try_init(game->mlx, game->p_sprite[0], "./img/sprite0.xpm");
+	//try_init(game->mlx, game->p_sprite[1], "./img/sprite1.xpm");
+	//try_init(game->mlx, game->p_sprite[2], "./img/sprite2.xpm");
+	//try_init(game->mlx, game->p_sprite[3], "./img/sprite3.xpm");
+	//try_init(game->mlx, game->p_sprite[4], "./img/sprite4.xpm");
+	//try_init(game->mlx, game->p_sprite[5], "./img/sprite5.xpm");
+	//try_init(game->mlx, game->p_sprite[6], "./img/sprite6.xpm");
+	return (0);
 }

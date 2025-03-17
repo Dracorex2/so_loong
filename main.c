@@ -3,24 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 14:37:19 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/14 19:23:58 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/17 15:21:33 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
-//int	main(void)
-//{
-//	void	*mlx;
-//	void	*mlx_win;
-//
-//	mlx = mlx_init();
-//	mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
-//	mlx_loop(mlx);
-//	(void)mlx_win;
-//}
 
 void	free_map(char **map)
 {
@@ -37,15 +27,20 @@ int	fline_count(char *file)
 	int		fd;
 	char	*line;
 	int		nb;
-	
+
 	fd = open(file, O_RDONLY);
 	nb = 0;
 	line = NULL;
-	while ((line = get_next_line(fd)))
+	line = get_next_line(fd);
+	while (line)
+	{
+		line = get_next_line(fd);
 		(free(line), nb++);
+	}
 	close(fd);
 	return (nb);
 }
+
 void	fline_read(t_game *game, char *file)
 {
 	int	y;
@@ -72,7 +67,7 @@ void	prnt_map(t_game *game)
 
 int	main(int argc, char **argv)
 {
-	t_game game;
+	t_game	game;
 
 	if (argc != 2)
 		return (1);
@@ -83,6 +78,6 @@ int	main(int argc, char **argv)
 	prnt_map(&game);
 	if (!map_checker(&game))
 		return (write(2, "Map Error", 9), 1);
-	mlx(&game);
+	mlx_i(&game);
 	mlx_loop(game.mlx);
 }

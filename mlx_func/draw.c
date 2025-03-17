@@ -3,23 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 19:11:17 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/14 19:12:35 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/17 15:20:02 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./header.h"
+#include "../header.h"
 
-void    draw_player(int x, int y, t_game *game)
+void	draw_player(int x, int y, t_game *game)
 {
-	int x2 = x * 80;
-	int y2 = y * 80;
 	mlx_put_image_to_window(
-		game->mlx, 
-		game->win, 
-		game->p_sprite[game->p.frame_idx], x2, y2);
+		game->mlx,
+		game->win,
+		game->p_sprite[game->p.frame_idx], x * game->img_s, y * game->img_s);
 	// if (game->p.frame_p == 0 && game->p.frame_idx < 5)
 	// 	game->p.frame_idx++;
 	// else if (game->p.frame_p == 0)
@@ -42,20 +40,20 @@ void    draw_player(int x, int y, t_game *game)
 	}
 }
 
-void    draw_obj(int x, int y, t_game *game)
+void	draw_obj(int x, int y, t_game *game)
 {
-	int x2 = x * 80;
-	int y2 = y * 80;
 	if (game->m.map[y][x] == '1')
-		mlx_put_image_to_window(game->mlx, game->win, game->w_sprite, x2, y2);
+		mlx_put_image_to_window(game->mlx, game->win, game->w_sprite,
+			x * game->img_s, y * game->img_s);
 	else if (game->m.map[y][x] == '0')
-		mlx_put_image_to_window(game->mlx, game->win, game->f_sprite, x2, y2);
+		mlx_put_image_to_window(game->mlx, game->win, game->f_sprite,
+			x * game->img_s, y * game->img_s);
 }
 
-int    do_draw(t_game *game)
+int	do_draw(t_game *game)
 {
-	int    x;
-	int    y;
+	int	x;
+	int	y;
 
 	y = 0;
 	while (y < game->m.height)
@@ -74,9 +72,9 @@ int    do_draw(t_game *game)
 
 int	count_frame(t_game *game)
 {
-	struct timeval    t0;
-	struct timeval    t1;
-	int					time_taken;
+	struct timeval	t0;
+	struct timeval	t1;
+	int				time_taken;
 
 	game->tick++;
 	gettimeofday(&t0, NULL);

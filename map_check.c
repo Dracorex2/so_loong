@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:07:51 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/14 17:58:57 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/17 15:10:33 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ int	is_rectangle(t_game *game)
 	}
 	return (1);
 }
-
 
 int	has_border(t_game *game)
 {
@@ -119,7 +118,7 @@ char **map_cpy(t_game *game)
 {
 	char	**cpy;
 	int		y;
-	
+
 	cpy = malloc((game->m.height + 1) * sizeof(char *));
 	y = -1;
 	while (++y < game->m.height)
@@ -134,7 +133,7 @@ char **map_cpy(t_game *game)
 int	flood_fill(char **map, int y, int x)
 {
 	int	res;
-	
+
 	if (map[y][x] == '1')
 		return (0);
 	res = 0;
