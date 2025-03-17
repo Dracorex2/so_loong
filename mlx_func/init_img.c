@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 19:14:44 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/17 16:07:03 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/17 16:21:25 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ void	try_init(t_game *game, void **dest, char *path)
 
 int	init_img(t_game *game)
 {
-	game->f_sprite = mlx_xpm_file_to_image(game->mlx, "./img/sol.xpm", &game->img_s, &game->img_s);
-	game->w_sprite = mlx_xpm_file_to_image(game->mlx, "./img/mur.xpm", &game->img_s, &game->img_s);
+	game->f_sprite = mlx_xpm_file_to_image(game->mlx, "./img/floor.xpm", &game->img_s, &game->img_s);
+	game->w_sprite = mlx_xpm_file_to_image(game->mlx, "./img/wall.xpm", &game->img_s, &game->img_s);
 	game->p_sprite[0] = mlx_xpm_file_to_image(game->mlx, "./img/sprite0.xpm", &game->img_s, &game->img_s);
 	game->p_sprite[1] = mlx_xpm_file_to_image(game->mlx, "./img/sprite1.xpm", &game->img_s, &game->img_s);
 	game->p_sprite[2] = mlx_xpm_file_to_image(game->mlx, "./img/sprite2.xpm", &game->img_s, &game->img_s);
