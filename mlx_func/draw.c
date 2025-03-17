@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 19:11:17 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/17 15:20:02 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/17 19:00:16 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,8 @@
 
 void	draw_player(int x, int y, t_game *game)
 {
-	mlx_put_image_to_window(
-		game->mlx,
-		game->win,
+	mlx_put_image_to_window(game->mlx, game->win,
 		game->p_sprite[game->p.frame_idx], x * game->img_s, y * game->img_s);
-	// if (game->p.frame_p == 0 && game->p.frame_idx < 5)
-	// 	game->p.frame_idx++;
-	// else if (game->p.frame_p == 0)
-	// 	game->p.frame_p = 1;
-	// if (game->p.frame_p == 1 && game->p.frame_idx > 0)
-	// 	game->p.frame_idx--;
-	// else if (game->p.frame_p == 1)
-	// 	game->p.frame_p = 0;
 	if (game->p.frame_p == 0 && game->tick % 4 == 0)
 	{
 		game->p.frame_idx++;

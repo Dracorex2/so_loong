@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 16:21:39 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/17 15:47:41 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/17 16:51:00 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int		do_draw(t_game *game);
 int		count_frame(t_game *game);
 
 int		destroy(t_game *game);
-void	destroy_player();
+void	free_img(t_game *game);
 
 void	try_init(t_game *game, void **dest, char *path);
 int		init_img(t_game *game);

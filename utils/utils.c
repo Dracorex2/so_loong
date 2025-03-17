@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 16:10:42 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/13 16:05:32 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/17 19:09:00 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,21 +38,6 @@ void	ft_putnbr(int nb)
 	ft_putchar(nbr % 10 + 48);
 }
 
-void	*ft_realloc(void *ptr, size_t old_size, size_t new_size)
-{
-	void	*res;
-
-	res = malloc(new_size);
-	if (!res)
-		return (free(ptr), NULL);
-	if (old_size < new_size)
-		ft_memcpy(res, ptr, old_size);
-	else
-		ft_memcpy(res, ptr, new_size);
-	free(ptr);
-	return (res);
-}
-
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	char	*d;
@@ -72,6 +57,8 @@ size_t	ft_strlen(const char *str)
 	size_t	i;
 
 	i = 0;
+	if (!str)
+		return (0);
 	while (str[i] != '\0')
 		i++;
 	return (i);

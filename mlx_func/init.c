@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 19:11:12 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/17 15:58:56 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/17 18:49:58 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,9 @@ int	key_press(int key, t_game *game)
 	if (key == XK_d && game->m.map[game->p.y][game->p.x + 1] != '1')
 		game->p.x += 1;
 	game->p.move += 1;
+	ft_putstr(1, "player move : ");
+	ft_putnbr(game->p.move);
+	ft_putstr(1, "\nkey remain : ");
+	ft_putnbr(game->m.coin_count);
 	return (0);
 }

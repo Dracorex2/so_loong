@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:07:51 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/17 15:10:33 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/17 19:13:23 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	is_rectangle(t_game *game)
 	while (++y < game->m.height)
 	{
 		x = -1;
-		while (game->m.map[y][++x])
+		while (++x < game->m.width)
 		{
 			if (x >= game->m.width || !is_object(game->m.map[y][x], "01PEC"))
 				return (0);
@@ -77,7 +77,7 @@ int	has_player(t_game *game)
 		x = -1;
 		while (++x < game->m.width)
 			if (game->m.map[y][x] == 'P')
-			{
+		{
 				game->m.map[y][x] = '0';
 				game->p.x = x;
 				game->p.y = y;
@@ -149,8 +149,10 @@ int	flood_fill(char **map, int y, int x)
 
 int	map_checker(t_game *game)
 {
-	char **map;
+	char	**map;
 
+	if (!game->m.map[0])
+		return (0);
 	if (!is_rectangle(game))
 		return (0);
 	if (!has_border(game))
@@ -162,10 +164,7 @@ int	map_checker(t_game *game)
 	map = map_cpy(game);
 	if (flood_fill(map, game->p.y, game->p.x)
 		!= game->m.coin_count + 1)
-	{
-		return (0);
-		free_map(map);
-	}
+		return (free_map(map), 0);
 	free_map(map);
 	return (1);
 }
