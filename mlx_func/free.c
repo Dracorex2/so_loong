@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 19:04:43 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/17 16:47:56 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/17 23:04:19 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@ void	free_img(t_game *game)
 {
 	mlx_destroy_image(game->mlx, game->w_sprite);
 	mlx_destroy_image(game->mlx, game->f_sprite);
+	mlx_destroy_image(game->mlx, game->c_sprite);
+	mlx_destroy_image(game->mlx, game->e_sprite[0]);
+	mlx_destroy_image(game->mlx, game->e_sprite[1]);
 	mlx_destroy_image(game->mlx, game->p_sprite[0]);
 	mlx_destroy_image(game->mlx, game->p_sprite[1]);
 	mlx_destroy_image(game->mlx, game->p_sprite[2]);

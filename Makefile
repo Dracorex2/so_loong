@@ -10,7 +10,7 @@ CC = gcc -Wall -Wextra -Werror -g
 CFLAGS =
 MLX_FLAGS = -lX11 -lXext
 
-SRCS = main.c map_check.c ./gnl/get_next_line_utils.c  ./gnl/get_next_line.c  \
+SRCS = main.c map_check.c ./gnl/get_next_line_utils.c  ./gnl/get_next_line.c  move_player.c\
 ./utils/utils.c  ./mlx_func/draw.c  ./mlx_func/free.c  ./mlx_func/init_img.c   ./mlx_func/init.c
 OBJECTS = $(SRCS:.c=.o)
 

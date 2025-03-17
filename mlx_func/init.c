@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 19:11:12 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/17 22:24:53 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/17 22:59:30 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,15 @@ int	key_press(int key, t_game *game)
 {
 	if (key == XK_Escape)
 		destroy(game);
-	if (key == XK_w && game->m.map[game->p.y - 1][game->p.x] != '1')
-		game->p.y -= 1;
-	if (key == XK_s && game->m.map[game->p.y + 1][game->p.x] != '1')
-		game->p.y += 1;
-	if (key == XK_a && game->m.map[game->p.y][game->p.x - 1] != '1')
-		game->p.x -= 1;
-	if (key == XK_d && game->m.map[game->p.y][game->p.x + 1] != '1')
-		game->p.x += 1;
-	game->p.move += 1;
-	ft_putstr(1, "player move : ");
+	if (key == XK_w)
+		move_player(game, game->p.x, game->p.y - 1);
+	if (key == XK_s)
+		move_player(game, game->p.x, game->p.y + 1);
+	if (key == XK_a)
+		move_player(game, game->p.x - 1, game->p.y);
+	if (key == XK_d)
+		move_player(game, game->p.x + 1, game->p.y);
+	ft_putstr(1, "\nplayer move : ");
 	ft_putnbr(game->p.move);
 	ft_putstr(1, "\nkey remain : ");
 	ft_putnbr(game->m.coin_count);

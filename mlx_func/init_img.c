@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 19:14:44 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/17 22:24:47 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/17 22:43:13 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,8 @@ int	init_img(t_game *game)
 	try_init(game, &game->p_sprite[4], "./img/sprite4.xpm");
 	try_init(game, &game->p_sprite[5], "./img/sprite5.xpm");
 	try_init(game, &game->p_sprite[6], "./img/sprite6.xpm");
+	try_init(game, &game->e_sprite[0], "./img/door_c.xpm");
+	try_init(game, &game->e_sprite[1], "./img/door_o.xpm");
+	try_init(game, &game->c_sprite, "./img/key.xpm");
 	return (0);
 }

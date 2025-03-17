@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 16:21:39 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/17 16:51:00 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/17 22:59:37 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ typedef struct s_game
 	t_map			m;
 	int				img_s;
 	void			*p_sprite[7];
-	void			*c_sprite[5];
+	void			*c_sprite;
 	void			*f_sprite;
 	void			*w_sprite;
 	void			*e_sprite[2];
@@ -78,5 +78,7 @@ int		init_img(t_game *game);
 
 void	mlx_i(t_game *game);
 int		key_press(int key, t_game *game);
+
+void	move_player(t_game *game, int x, int y);
 
 #endif

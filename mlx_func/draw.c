@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 19:11:17 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/17 19:00:16 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/17 22:44:48 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,15 @@ void	draw_obj(int x, int y, t_game *game)
 			x * game->img_s, y * game->img_s);
 	else if (game->m.map[y][x] == '0')
 		mlx_put_image_to_window(game->mlx, game->win, game->f_sprite,
+			x * game->img_s, y * game->img_s);
+	else if (game->m.map[y][x] == 'C')
+		mlx_put_image_to_window(game->mlx, game->win, game->c_sprite,
+			x * game->img_s, y * game->img_s);
+	else if (game->m.map[y][x] == 'E' && game->m.coin_count > 0)
+		mlx_put_image_to_window(game->mlx, game->win, game->e_sprite[0],
+			x * game->img_s, y * game->img_s);
+	else if (game->m.map[y][x] == 'E' && game->m.coin_count == 0)
+		mlx_put_image_to_window(game->mlx, game->win, game->e_sprite[1],
 			x * game->img_s, y * game->img_s);
 }
 
