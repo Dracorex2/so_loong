@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 19:11:12 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/18 08:08:36 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/18 14:40:42 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	mlx_i(t_game *game)
 	game->win = mlx_new_window(game->mlx, game->m.width * game->img_s,
 			game->m.height * game->img_s, "so long");
 	printf("%p\n", game->mlx);
-	mlx_key_hook(game->win, &key_press, game);
+	mlx_hook(game->win, 2, 1, &key_press, game);
 	mlx_loop_hook(game->mlx, &count_frame, game);
 	mlx_hook(game->win, 17, 0, &destroy, game);
 	do_draw(game);
