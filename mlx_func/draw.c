@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 19:11:17 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/17 22:44:48 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/18 07:47:15 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,18 +54,14 @@ int	do_draw(t_game *game)
 	int	x;
 	int	y;
 
-	y = 0;
-	while (y < game->m.height)
+	y = -1;
+	while (++y < game->m.height)
 	{
-		x = 0;
-		while (x < game->m.width)
-		{
+		x = -1;
+		while (++x < game->m.width)
 			draw_obj(x, y, game);
-			x++;
-		}
-		y++;
 	}
-	draw_player(game->p.x, game->p.y, game);
+	//draw_player(game->p.x, game->p.y, game);
 	return (0);
 }
 
@@ -77,8 +73,8 @@ int	count_frame(t_game *game)
 
 	game->tick++;
 	gettimeofday(&t0, NULL);
-	mlx_clear_window(game->mlx, game->win);
-	do_draw(game);
+	//do_draw(game);
+	draw_player(game->p.x, game->p.y, game);
 	gettimeofday(&t1, NULL);
 	time_taken = (t1.tv_sec - t0.tv_sec) * 1000000 + (t1.tv_usec - t0.tv_usec);
 	if (time_taken < 1000000 / 56)

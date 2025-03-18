@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 19:11:12 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/17 22:59:30 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/18 07:46:28 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@ void	mlx_i(t_game *game)
 	init_img(game);
 	game->win = mlx_new_window(game->mlx, game->m.width * game->img_s,
 			game->m.height * game->img_s, "so long");
+	printf("%p\n", game->mlx);
 	mlx_key_hook(game->win, &key_press, game);
 	mlx_loop_hook(game->mlx, &count_frame, game);
 	mlx_hook(game->win, 17, 0, &destroy, game);
+	do_draw(game);
 }
 
 int	key_press(int key, t_game *game)
@@ -35,9 +37,7 @@ int	key_press(int key, t_game *game)
 		move_player(game, game->p.x - 1, game->p.y);
 	if (key == XK_d)
 		move_player(game, game->p.x + 1, game->p.y);
-	ft_putstr(1, "\nplayer move : ");
-	ft_putnbr(game->p.move);
-	ft_putstr(1, "\nkey remain : ");
-	ft_putnbr(game->m.coin_count);
+	do_draw(game);
+
 	return (0);
 }
