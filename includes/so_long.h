@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 08:03:16 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/18 08:07:24 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/18 08:15:16 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,11 @@ typedef struct s_game
 	unsigned int	tick;
 }	t_game;
 
-//main
-void	free_map(char **map);
-
 //check map
 int		is_rectangle(t_game *game);
 int		has_border(t_game *game);
 int		has_element(t_game *game);
+int		has_player(t_game *game);
 char	**map_cpy(t_game *game);
 int		flood_fill(char **map, int y, int x);
 int		map_checker(t_game *game);
@@ -71,9 +69,12 @@ void	draw_obj(int x, int y, t_game *game);
 int		do_draw(t_game *game);
 int		count_frame(t_game *game);
 
-int		destroy(t_game *game);
+//free
+void	free_map(char **map);
 void	free_img(t_game *game);
+int		destroy(t_game *game);
 
+//init
 void	try_init(t_game *game, void **dest, char *path);
 int		init_img(t_game *game);
 

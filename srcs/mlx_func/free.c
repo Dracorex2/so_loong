@@ -6,11 +6,21 @@
 /*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 19:04:43 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/18 08:08:29 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/18 08:11:40 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
+
+void	free_map(char **map)
+{
+	int	y;
+
+	y = -1;
+	while (map[++y])
+		free(map[y]);
+	free(map);
+}
 
 void	free_img(t_game *game)
 {

@@ -6,21 +6,11 @@
 /*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 14:37:19 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/18 08:04:12 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/18 08:15:38 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-
-void	free_map(char **map)
-{
-	int	y;
-
-	y = -1;
-	while (map[++y])
-		free(map[y]);
-	free(map);
-}
 
 int	main(int argc, char **argv)
 {
