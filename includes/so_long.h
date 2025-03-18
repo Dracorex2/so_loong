@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 08:03:16 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/18 08:15:16 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/18 21:34:30 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,7 @@ void	move_player(t_game *game, int x, int y);
 //files
 int		fline_count(char *file);
 void	fline_read(t_game *game, char *file);
+
+void	move_enemies(t_game *game);
 
 #endif

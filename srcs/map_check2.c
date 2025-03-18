@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 08:13:25 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/18 08:18:53 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/18 21:07:18 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	is_rectangle(t_game *game)
 		x = -1;
 		while (++x < game->m.width)
 		{
-			if (x >= game->m.width || !is_object(game->m.map[y][x], "01PEC"))
+			if (x >= game->m.width || !is_object(game->m.map[y][x], "01PECO"))
 				return (0);
 		}
 	}

@@ -6,23 +6,49 @@
 /*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 19:11:17 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/18 08:08:27 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/18 22:24:32 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
+void	draw_enemies(t_game *game)
+{
+	int	y;
+	int	x;
+
+	y = -1;
+	while (++y < game->m.height)
+	{
+		x = -1;
+		while (++x < game->m.width)
+		{
+			if (game->m.map[y][x] == 'O')
+			{
+				mlx_put_image_to_window(game->mlx, game->win,
+					game->p_sprite[game->p.frame_idx],
+					x * game->img_s, y * game->img_s);
+				draw_obj(x, y + 1, game);
+				draw_obj(x - 1, y, game);
+				draw_obj(x + 1, y, game);
+				draw_obj(x, y - 1, game);
+			}
+		}
+	}
+}
+
 void	draw_player(int x, int y, t_game *game)
 {
 	mlx_put_image_to_window(game->mlx, game->win,
 		game->p_sprite[game->p.frame_idx], x * game->img_s, y * game->img_s);
-	if (game->p.frame_p == 0 && game->tick % 4 == 0)
+	draw_enemies(game);
+	if (game->p.frame_p == 0)
 	{
 		game->p.frame_idx++;
 		if (game->p.frame_idx >= 6)
 			game->p.frame_p = 1;
 	}
-	else if (game->tick % 4 == 0)
+	else
 	{
 		game->p.frame_idx--;
 		if (game->p.frame_idx <= 0)
@@ -72,7 +98,10 @@ int	count_frame(t_game *game)
 
 	game->tick++;
 	gettimeofday(&t0, NULL);
-	draw_player(game->p.x, game->p.y, game);
+	if (game->tick % 4 == 0)
+		draw_player(game->p.x, game->p.y, game);
+	if (game->tick % 56 == 0)
+		move_enemies(game);
 	gettimeofday(&t1, NULL);
 	time_taken = (t1.tv_sec - t0.tv_sec) * 1000000 + (t1.tv_usec - t0.tv_usec);
 	if (time_taken < 1000000 / 56)

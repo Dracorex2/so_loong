@@ -11,7 +11,7 @@ CFLAGS =
 MLX_FLAGS = -lX11 -lXext
 
 SRCS = main.c map_check.c map_check2.c /gnl/get_next_line_utils.c  /gnl/get_next_line.c  move_player.c files_func.c\
-/utils/utils.c  /mlx_func/draw.c  /mlx_func/free.c  /mlx_func/init_img.c   /mlx_func/init.c
+/utils/utils.c  /mlx_func/draw.c  /mlx_func/free.c  /mlx_func/init_img.c   /mlx_func/init.c enemies.c
 
 OBJECTS = $(addprefix $(SRCS_DIR), $(SRCS:.c=.o))
 

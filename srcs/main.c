@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 14:37:19 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/18 08:15:38 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/18 22:05:22 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 int	main(int argc, char **argv)
 {
-	t_game	game;
+	t_game			game;
+	struct timeval	t;
 
+	gettimeofday(&t, NULL);
+	srand(t.tv_sec + t.tv_usec);
 	if (argc != 2)
 		return (1);
 	game = (t_game){0};

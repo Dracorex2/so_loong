@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 22:49:04 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/18 08:04:35 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/18 22:18:38 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void	move_player(t_game *game, int x, int y)
 			game->m.map[y][x] = '0';
 			game->m.coin_count--;
 		}
-		else if (game->m.map[y][x] == 'E' && game->m.coin_count == 0)
+		else if (game->m.map[y][x] == 'O' ||
+				(game->m.map[y][x] == 'E' && game->m.coin_count == 0))
 			destroy(game);
 		game->p.move++;
 	}
