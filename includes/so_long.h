@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 08:03:16 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/18 21:34:30 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/18 22:37:24 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ typedef struct s_game
 	t_map			m;
 	int				img_s;
 	void			*p_sprite[7];
+	void			*p_sprite_p[7];
+	void			*o_sprite[7];
 	void			*c_sprite;
 	void			*f_sprite;
 	void			*w_sprite;

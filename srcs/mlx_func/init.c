@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 19:11:12 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/18 22:24:22 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/18 22:36:35 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	key_press(int key, t_game *game)
 		destroy(game);
 	if (key == XK_w || key == XK_Up)
 		move_player(game, game->p.x, game->p.y - 1);
-	if (key == XK_s|| key == XK_Down)
+	if (key == XK_s || key == XK_Down)
 		move_player(game, game->p.x, game->p.y + 1);
 	if (key == XK_a || key == XK_Left)
 		move_player(game, game->p.x - 1, game->p.y);

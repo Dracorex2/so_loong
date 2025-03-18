@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 19:11:17 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/18 22:24:32 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/18 22:48:31 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	draw_enemies(t_game *game)
 			if (game->m.map[y][x] == 'O')
 			{
 				mlx_put_image_to_window(game->mlx, game->win,
-					game->p_sprite[game->p.frame_idx],
+					game->o_sprite[game->p.frame_idx],
 					x * game->img_s, y * game->img_s);
 				draw_obj(x, y + 1, game);
 				draw_obj(x - 1, y, game);
@@ -39,9 +39,15 @@ void	draw_enemies(t_game *game)
 
 void	draw_player(int x, int y, t_game *game)
 {
-	mlx_put_image_to_window(game->mlx, game->win,
-		game->p_sprite[game->p.frame_idx], x * game->img_s, y * game->img_s);
 	draw_enemies(game);
+	if (game->m.map[y][x] == 'E')
+		mlx_put_image_to_window(game->mlx, game->win,
+			game->p_sprite_p[game->p.frame_idx],
+			x * game->img_s, y * game->img_s);
+	else
+		mlx_put_image_to_window(game->mlx, game->win,
+			game->p_sprite[game->p.frame_idx],
+			x * game->img_s, y * game->img_s);
 	if (game->p.frame_p == 0)
 	{
 		game->p.frame_idx++;
@@ -99,7 +105,11 @@ int	count_frame(t_game *game)
 	game->tick++;
 	gettimeofday(&t0, NULL);
 	if (game->tick % 4 == 0)
+	{
 		draw_player(game->p.x, game->p.y, game);
+		if (game->m.map[game->p.y][game->p.x] == 'O')
+			destroy(game);
+	}
 	if (game->tick % 56 == 0)
 		move_enemies(game);
 	gettimeofday(&t1, NULL);

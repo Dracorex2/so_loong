@@ -6,11 +6,32 @@
 /*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:07:51 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/18 21:07:09 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/18 23:06:03 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+int	check_enemies(t_game *game)
+{
+	int	y;
+	int	x;
+
+	y = -1;
+	while (++y < game->m.height)
+	{
+		x = -1;
+		while (++x < game->m.width)
+		{
+			if (game->m.map[y][x] == 'O')
+			{
+				if (game->m.map[y + 1][x] == '1' && game->m.map[y - 1][x] == '1' && game->m.map[y][x + 1] == '1' && game->m.map[y][x - 1] == '1')
+					return (0);
+			}
+		}
+	}
+	return (1);
+}
 
 char	**map_cpy(t_game *game)
 {
@@ -58,6 +79,8 @@ int	map_checker(t_game *game)
 	if (!has_player(game))
 		return (0);
 	if (!has_element(game))
+		return (0);
+	if (!check_enemies(game))
 		return (0);
 	map = map_cpy(game);
 	if (flood_fill(map, game->p.y, game->p.x)

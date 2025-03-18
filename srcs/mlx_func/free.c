@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 19:04:43 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/18 08:11:40 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/18 22:43:54 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,20 @@ void	free_img(t_game *game)
 	mlx_destroy_image(game->mlx, game->p_sprite[4]);
 	mlx_destroy_image(game->mlx, game->p_sprite[5]);
 	mlx_destroy_image(game->mlx, game->p_sprite[6]);
+	mlx_destroy_image(game->mlx, game->p_sprite_p[0]);
+	mlx_destroy_image(game->mlx, game->p_sprite_p[1]);
+	mlx_destroy_image(game->mlx, game->p_sprite_p[2]);
+	mlx_destroy_image(game->mlx, game->p_sprite_p[3]);
+	mlx_destroy_image(game->mlx, game->p_sprite_p[4]);
+	mlx_destroy_image(game->mlx, game->p_sprite_p[5]);
+	mlx_destroy_image(game->mlx, game->p_sprite_p[6]);
+	mlx_destroy_image(game->mlx, game->o_sprite[0]);
+	mlx_destroy_image(game->mlx, game->o_sprite[1]);
+	mlx_destroy_image(game->mlx, game->o_sprite[2]);
+	mlx_destroy_image(game->mlx, game->o_sprite[3]);
+	mlx_destroy_image(game->mlx, game->o_sprite[4]);
+	mlx_destroy_image(game->mlx, game->o_sprite[5]);
+	mlx_destroy_image(game->mlx, game->o_sprite[6]);
 }
 
 int	destroy(t_game *game)

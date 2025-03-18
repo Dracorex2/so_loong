@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 21:08:20 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/18 22:03:59 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/18 22:45:48 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	try_move(t_game *game, int y, int x)
 			{
 				game->m.map[y + 1][x] = 'o';
 				game->m.map[y][x] = '0';
-				break;
+				break ;
 			}
 		}
 		if (r == 2)
@@ -62,7 +62,7 @@ void	try_move(t_game *game, int y, int x)
 			{
 				game->m.map[y][x + 1] = 'o';
 				game->m.map[y][x] = '0';
-				break;
+				break ;
 			}
 		}
 		if (r == 3)
@@ -71,7 +71,7 @@ void	try_move(t_game *game, int y, int x)
 			{
 				game->m.map[y - 1][x] = 'o';
 				game->m.map[y][x] = '0';
-				break;
+				break ;
 			}
 		}
 		if (r == 4)
@@ -80,7 +80,7 @@ void	try_move(t_game *game, int y, int x)
 			{
 				game->m.map[y][x - 1] = 'o';
 				game->m.map[y][x] = '0';
-				break;
+				break ;
 			}
 		}
 	}
