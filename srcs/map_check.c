@@ -6,11 +6,11 @@
 /*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:07:51 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/17 19:13:23 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/18 08:05:25 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "../includes/so_long.h"
 
 int	is_object(char c, char *charset)
 {

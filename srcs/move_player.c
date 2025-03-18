@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   move_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 22:49:04 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/18 07:46:41 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/18 08:04:35 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "../includes/so_long.h"
 
 void	move_player(t_game *game, int x, int y)
 {

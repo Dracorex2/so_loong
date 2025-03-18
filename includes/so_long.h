@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   header.h                                           :+:      :+:    :+:   */
+/*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/11 16:21:39 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/17 22:59:37 by lucmansa         ###   ########.fr       */
+/*   Created: 2025/03/18 08:03:16 by lucmansa          #+#    #+#             */
+/*   Updated: 2025/03/18 08:07:24 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEADER_H
-# define HEADER_H
+#ifndef SO_LONG_H
 
-# include "./mlx/mlx.h"
-# include "./utils/utils.h"
-# include "./gnl/get_next_line.h"
+# define SO_LONG_H
+
+# include "../mlx/mlx.h"
+# include "../srcs/utils/utils.h"
+# include "get_next_line.h"
 # include <fcntl.h>
 # include <sys/time.h>
 # include <X11/keysym.h>
@@ -80,5 +81,9 @@ void	mlx_i(t_game *game);
 int		key_press(int key, t_game *game);
 
 void	move_player(t_game *game, int x, int y);
+
+//files
+int		fline_count(char *file);
+void	fline_read(t_game *game, char *file);
 
 #endif

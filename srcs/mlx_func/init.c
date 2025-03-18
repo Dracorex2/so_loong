@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 19:11:12 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/18 07:46:28 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/18 08:08:36 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header.h"
+#include "../../includes/so_long.h"
 
 void	mlx_i(t_game *game)
 {
@@ -38,6 +38,5 @@ int	key_press(int key, t_game *game)
 	if (key == XK_d)
 		move_player(game, game->p.x + 1, game->p.y);
 	do_draw(game);
-
 	return (0);
 }

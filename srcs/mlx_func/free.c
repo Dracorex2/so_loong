@@ -6,11 +6,11 @@
 /*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 19:04:43 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/17 23:04:19 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/18 08:08:29 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header.h"
+#include "../../includes/so_long.h"
 
 void	free_img(t_game *game)
 {

@@ -6,11 +6,11 @@
 /*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 12:19:44 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/17 18:54:19 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/18 08:08:07 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../../includes/get_next_line.h"
 
 int	ft_strchr(char *s, char c)
 {

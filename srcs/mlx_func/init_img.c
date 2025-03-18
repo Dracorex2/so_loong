@@ -6,11 +6,11 @@
 /*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 19:14:44 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/17 22:43:13 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/18 08:08:32 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header.h"
+#include "../../includes/so_long.h"
 
 void	try_init(t_game *game, void **dest, char *path)
 {

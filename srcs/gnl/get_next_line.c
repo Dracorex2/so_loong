@@ -6,13 +6,12 @@
 /*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 12:17:21 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/17 19:14:18 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/18 08:08:06 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../../includes/get_next_line.h"
 #include <stdio.h>
-
 
 char	*ft_return(char **rest)
 {

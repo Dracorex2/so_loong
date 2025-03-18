@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 19:11:17 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/18 07:47:15 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/18 08:08:27 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header.h"
+#include "../../includes/so_long.h"
 
 void	draw_player(int x, int y, t_game *game)
 {
@@ -61,7 +61,6 @@ int	do_draw(t_game *game)
 		while (++x < game->m.width)
 			draw_obj(x, y, game);
 	}
-	//draw_player(game->p.x, game->p.y, game);
 	return (0);
 }
 
@@ -73,7 +72,6 @@ int	count_frame(t_game *game)
 
 	game->tick++;
 	gettimeofday(&t0, NULL);
-	//do_draw(game);
 	draw_player(game->p.x, game->p.y, game);
 	gettimeofday(&t1, NULL);
 	time_taken = (t1.tv_sec - t0.tv_sec) * 1000000 + (t1.tv_usec - t0.tv_usec);
