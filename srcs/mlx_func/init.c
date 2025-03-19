@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 19:11:12 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/19 18:30:14 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/19 23:16:21 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,14 @@ void	mlx_i(t_game *game)
 	mlx_loop_hook(game->mlx, &count_frame, game);
 	mlx_hook(game->win, 17, 0, &destroy, game);
 	do_draw(game);
+	if (BONUS_MODE)
+		put_nb_win(game);
 }
 
 int	key_press(int key, t_game *game)
 {
 	if (key == XK_Escape)
-		destroy(game);
+		destroy(game, 0);
 	if (key == XK_w || key == XK_Up)
 		move_player(game, game->p.x, game->p.y - 1);
 	if (key == XK_s || key == XK_Down)
@@ -37,6 +39,7 @@ int	key_press(int key, t_game *game)
 	if (key == XK_d || key == XK_Right)
 		move_player(game, game->p.x + 1, game->p.y);
 	do_draw(game);
-	put_nb_win(game);
+	if (BONUS_MODE)
+		put_nb_win(game);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:07:51 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/18 23:06:03 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/19 23:19:20 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,13 @@ int	check_enemies(t_game *game)
 		x = -1;
 		while (++x < game->m.width)
 		{
+			if (!BONUS_MODE && game->m.map[y][x] == 'O')
+				game->m.map[y][x] = '0';
 			if (game->m.map[y][x] == 'O')
 			{
-				if (game->m.map[y + 1][x] == '1' && game->m.map[y - 1][x] == '1' && game->m.map[y][x + 1] == '1' && game->m.map[y][x - 1] == '1')
+				if (game->m.map[y + 1][x] == '1' && game->m.map[y - 1][x] == '1'
+					&& game->m.map[y][x + 1] == '1'
+					&& game->m.map[y][x - 1] == '1')
 					return (0);
 			}
 		}

@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 19:11:17 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/19 20:14:01 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/19 23:13:41 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	draw_enemies(t_game *game)
 	int	y;
 	int	x;
 
-	if (game->p.frame_idx == 6)
+	if (BONUS_MODE && game->p.frame_idx == 6)
 		move_enemies(game);
 	y = -1;
 	while (++y < game->m.height)
@@ -110,7 +110,7 @@ int	count_frame(t_game *game)
 	{
 		draw_player(game->p.x, game->p.y, game);
 		if (game->m.map[game->p.y][game->p.x] == 'O')
-			destroy(game);
+			destroy(game, 2);
 	}
 	gettimeofday(&t1, NULL);
 	time_taken = (t1.tv_sec - t0.tv_sec) * 1000000 + (t1.tv_usec - t0.tv_usec);

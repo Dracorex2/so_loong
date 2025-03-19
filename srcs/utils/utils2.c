@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 16:30:37 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/18 16:32:20 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/19 22:35:37 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 #include <stdlib.h>
 
-int randint(int nb)
+int	randint(int nb)
 {
-    return (rand() *1.0 / RAND_MAX * (nb));
+	return (rand() * 1.0 / RAND_MAX * (nb));
 }

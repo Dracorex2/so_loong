@@ -6,11 +6,30 @@
 /*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 07:55:06 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/18 08:06:51 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/19 22:31:23 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+int	ext_check(char *file, char *ext)
+{
+	int	i;
+	int	y;
+
+	i = 0;
+	while (file[i])
+		i++;
+	i -= ft_strlen(ext);
+	y = 0;
+	while (file[i + y])
+	{
+		if (file[i + y] != ext[y])
+			return (0);
+		y++;
+	}
+	return (1);
+}
 
 int	fline_count(char *file)
 {

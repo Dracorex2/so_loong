@@ -3,16 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 08:03:16 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/19 19:31:38 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/19 23:13:17 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 
 # define SO_LONG_H
+
+# ifndef BONUS_MODE
+#  define BONUS_MODE 0
+# endif
 
 # include "../mlx/mlx.h"
 # include "../srcs/utils/utils.h"
@@ -75,7 +79,7 @@ int		count_frame(t_game *game);
 //free
 void	free_map(char **map);
 void	free_img(t_game *game);
-int		destroy(t_game *game);
+int		destroy(t_game *game, int i);
 
 //init
 void	try_init(t_game *game, void **dest, char *path);
@@ -89,9 +93,15 @@ void	move_player(t_game *game, int x, int y);
 //files
 int		fline_count(char *file);
 void	fline_read(t_game *game, char *file);
+int		ext_check(char *file, char *ext);
 
+//enemies
 void	move_enemies(t_game *game);
+int		move_up(t_game *game, int y, int x);
+int		move_down(t_game *game, int y, int x);
+int		move_left(t_game *game, int y, int x);
+int		move_right(t_game *game, int y, int x);
 
-void    put_nb_win(t_game *game);
+void	put_nb_win(t_game *game);
 
 #endif
