@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 19:11:17 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/18 22:48:31 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/19 18:53:22 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	draw_enemies(t_game *game)
 	int	y;
 	int	x;
 
+	//if (game->p.frame_idx == 6)
+		//move_enemies(game);
 	y = -1;
 	while (++y < game->m.height)
 	{
@@ -110,8 +112,6 @@ int	count_frame(t_game *game)
 		if (game->m.map[game->p.y][game->p.x] == 'O')
 			destroy(game);
 	}
-	if (game->tick % 56 == 0)
-		move_enemies(game);
 	gettimeofday(&t1, NULL);
 	time_taken = (t1.tv_sec - t0.tv_sec) * 1000000 + (t1.tv_usec - t0.tv_usec);
 	if (time_taken < 1000000 / 56)

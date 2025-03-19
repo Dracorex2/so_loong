@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 19:11:12 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/18 22:36:35 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/19 18:30:14 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ int	key_press(int key, t_game *game)
 	if (key == XK_d || key == XK_Right)
 		move_player(game, game->p.x + 1, game->p.y);
 	do_draw(game);
+	put_nb_win(game);
 	return (0);
 }

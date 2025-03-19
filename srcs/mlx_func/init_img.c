@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_img.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 19:14:44 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/18 22:38:40 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/19 19:39:39 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,16 @@ int	init_img(t_game *game)
 	try_init(game, &game->o_sprite[6], "./img/enemie6.xpm");
 	try_init(game, &game->e_sprite[0], "./img/door_c.xpm");
 	try_init(game, &game->e_sprite[1], "./img/door_o.xpm");
+	try_init(game, &game->nb[0], "./img/nb_0.xpm");
+	try_init(game, &game->nb[1], "./img/nb_1.xpm");
+	try_init(game, &game->nb[2], "./img/nb_2.xpm");
+	try_init(game, &game->nb[3], "./img/nb_3.xpm");
+	try_init(game, &game->nb[4], "./img/nb_4.xpm");
+	try_init(game, &game->nb[5], "./img/nb_5.xpm");
+	try_init(game, &game->nb[6], "./img/nb_6.xpm");
+	try_init(game, &game->nb[7], "./img/nb_7.xpm");
+	try_init(game, &game->nb[8], "./img/nb_8.xpm");
+	try_init(game, &game->nb[9], "./img/nb_9.xpm");
 	try_init(game, &game->c_sprite, "./img/key.xpm");
 	return (0);
 }

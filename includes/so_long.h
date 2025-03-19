@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 08:03:16 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/18 22:37:24 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/19 19:31:38 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct s_game
 	t_player		p;
 	t_map			m;
 	int				img_s;
+	void			*nb[10];
 	void			*p_sprite[7];
 	void			*p_sprite_p[7];
 	void			*o_sprite[7];
@@ -90,5 +91,7 @@ int		fline_count(char *file);
 void	fline_read(t_game *game, char *file);
 
 void	move_enemies(t_game *game);
+
+void    put_nb_win(t_game *game);
 
 #endif
