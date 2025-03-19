@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 19:11:17 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/19 18:53:22 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/19 20:14:01 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	draw_enemies(t_game *game)
 	int	y;
 	int	x;
 
-	//if (game->p.frame_idx == 6)
-		//move_enemies(game);
+	if (game->p.frame_idx == 6)
+		move_enemies(game);
 	y = -1;
 	while (++y < game->m.height)
 	{
