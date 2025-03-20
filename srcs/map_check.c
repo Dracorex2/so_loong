@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:07:51 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/20 16:18:33 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/20 16:27:31 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	map_checker(t_game *game)
 	char	**map;
 
 	if (!game->m.map[0])
-		return (0);
+		return (write(2, "Map is empty\n", 13), 0);
 	if (!is_rectangle(game))
 		return (write(2, "Map not rectangle\n", 18), 0);
 	if (!has_border(game))
