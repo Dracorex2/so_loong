@@ -27,7 +27,7 @@ BONUS_MODE = 0
 all: mlx $(NAME)
 
 mlx:
-	make -sC $(MLX_DIR)
+	make -C $(MLX_DIR)
 
 $(NAME): $(OBJECTS)
 		$(CC) $(CFLAGS) $(OBJECTS) $(MLX_DIR)$(MLX_LIB) $(MLX_FLAGS) -o $@ -I$(MLX_DIR) -I$(INCLUDE)
@@ -43,7 +43,7 @@ clean:
 
 fclean: clean
 		rm -rf $(NAME) $(NAME_BONUS)
-		make clean -sC $(MLX_DIR)
+		make clean -C $(MLX_DIR)
 
 re: fclean all
 
