@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:07:51 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/20 16:13:00 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/20 16:18:33 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int	map_checker(t_game *game)
 	if (!has_element(game))
 		return (write(2, "Missing collectible or exit\n", 28), 0);
 	if (!check_enemies(game))
-		return (write(2, "Enemie stuck\n", 28), 0);
+		return (write(2, "Enemie stuck\n", 13), 0);
 	map = map_cpy(game);
 	if (flood_fill(map, game->p.y, game->p.x)
 		!= game->m.coin_count + 1)
