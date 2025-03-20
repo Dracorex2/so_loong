@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 08:13:25 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/20 18:28:06 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/20 18:31:29 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	is_rectangle(t_game *game)
 			if (!is_object(game->m.map[y][x], "01PECO"))
 				return (0);
 		}
-		if (x != game->m.width - 1)
+		if (x != game->m.width)
 			return (0);
 	}
 	return (1);
