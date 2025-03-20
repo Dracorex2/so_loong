@@ -36,7 +36,7 @@ $(NAME_BONUS): $(OBJECTS) $(OBJECTS_BONUS)
 		$(CC) $(CFLAGS) $(OBJECTS) $(OBJECTS_BONUS) $(MLX_DIR)$(MLX_LIB) $(MLX_FLAGS) -o so_long -I$(MLX_DIR) -I$(INCLUDE)
 
 bonus: BONUS_MODE = 1
-bonus: mlx $(NAME_BONUS)
+bonus: clean mlx $(NAME_BONUS)
 
 clean:
 		rm -rf $(OBJECTS) $(OBJECTS_BONUS)
