@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   move_enemies.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 22:54:49 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/19 23:04:25 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/20 15:46:54 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 int	move_up(t_game *game, int y, int x)
 {

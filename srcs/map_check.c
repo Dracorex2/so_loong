@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:07:51 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/19 23:19:20 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/20 16:13:00 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 int	check_enemies(t_game *game)
 {
@@ -77,19 +77,20 @@ int	map_checker(t_game *game)
 	if (!game->m.map[0])
 		return (0);
 	if (!is_rectangle(game))
-		return (0);
+		return (write(2, "Map not rectangle\n", 18), 0);
 	if (!has_border(game))
-		return (0);
+		return (write(2, "Missing border\n", 15), 0);
 	if (!has_player(game))
-		return (0);
+		return (write(2, "Missing player\n", 15), 0);
 	if (!has_element(game))
-		return (0);
+		return (write(2, "Missing collectible or exit\n", 28), 0);
 	if (!check_enemies(game))
-		return (0);
+		return (write(2, "Enemie stuck\n", 28), 0);
 	map = map_cpy(game);
 	if (flood_fill(map, game->p.y, game->p.x)
 		!= game->m.coin_count + 1)
-		return (free_map(map), 0);
+		return (write(2, "Collectible or exit is not accessible\n", 38)
+			, free_map(map), 0);
 	free_map(map);
 	return (1);
 }

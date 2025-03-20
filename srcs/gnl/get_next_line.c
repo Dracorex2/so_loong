@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 12:17:21 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/18 08:08:06 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/20 16:14:05 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ char	*ft_return(char **rest)
 	i = ft_strchr(*rest, '\n');
 	if (i == -1)
 		i = ft_strchr(*rest, '\0') - 1;
-	if (i == 0)
-		return (NULL);
 	res = ft_strjoin(NULL, *rest, i + 1);
 	tmp = *rest;
 	*rest = ft_strjoin(NULL, *rest + i + 1, ft_strchr(*rest + i + 1, '\0'));

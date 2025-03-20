@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   enemies.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 21:08:20 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/19 23:07:33 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/20 15:48:19 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 #include <stdlib.h>
-#include <time.h>
 
 int	randint(int i)
 {

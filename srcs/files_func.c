@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   files_func.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 07:55:06 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/19 22:31:23 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/20 15:49:09 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 int	ext_check(char *file, char *ext)
 {

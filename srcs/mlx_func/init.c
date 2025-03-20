@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 19:11:12 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/19 23:16:21 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/20 15:32:48 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,13 @@ void	mlx_i(t_game *game)
 	game->win = mlx_new_window(game->mlx, game->m.width * game->img_s,
 			game->m.height * game->img_s, "so long");
 	mlx_hook(game->win, 2, 1, &key_press, game);
-	mlx_loop_hook(game->mlx, &count_frame, game);
 	mlx_hook(game->win, 17, 0, &destroy, game);
-	do_draw(game);
 	if (BONUS_MODE)
+	{
+		mlx_loop_hook(game->mlx, &count_frame, game);
 		put_nb_win(game);
+	}
+	do_draw(game);
 }
 
 int	key_press(int key, t_game *game)

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   nbr_windows.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucmansa <lucmansa@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 18:01:15 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/19 23:06:02 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/20 15:47:23 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 void	put_nb_win(t_game *game)
 {
