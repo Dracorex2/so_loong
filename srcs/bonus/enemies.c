@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 21:08:20 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/21 17:57:56 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/21 18:00:02 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	try_move(t_game *game, int y, int x)
 	int i;
 
 	i = -1;
-	while (++i > 10)
+	while (++i < 10)
 	{
 		r = randint(5);
 		if (r == 1)
