@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 14:37:19 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/20 16:13:28 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/21 15:48:42 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 	game.m.map = ft_calloc((game.m.height + 1), sizeof(char *));
 	fline_read(&game, argv[1]);
 	if (!map_checker(&game))
-		return (free_map(game.m.map), 1);
+		return (free(get_next_line), free_map(game.m.map), 1);
 	mlx_i(&game);
 	mlx_loop(game.mlx);
 }
