@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:07:51 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/20 18:43:40 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/21 15:27:02 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,11 @@ int	flood_fill(char **map, int y, int x)
 	res += flood_fill(map, y + 1, x);
 	return (res);
 }
-#include <stdio.h>
+
 int	map_checker(t_game *game)
 {
 	char	**map;
+
 	if (!game->m.map[0] || !game->m.map[1])
 		return (write(2, "Map is empty\n", 13), 0);
 	if (!is_rectangle(game))
