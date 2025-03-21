@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 07:55:06 by lucmansa          #+#    #+#             */
-/*   Updated: 2025/03/20 15:49:09 by lucmansa         ###   ########.fr       */
+/*   Updated: 2025/03/21 16:05:32 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,10 @@ void	fline_read(t_game *game, char *file)
 	game->m.map[y] = get_next_line(fd);
 	game->m.width = ft_strlen(game->m.map[y]);
 	if (game->m.width == 0)
-		return ;
+		return (close(fd), free(get_next_line(fd)));
 	while (++y < game->m.height)
 		game->m.map[y] = get_next_line(fd);
 	game->m.map[y] = NULL;
-	free(get_next_line(fd));
 	close(fd);
+	free(get_next_line(fd));
 }
