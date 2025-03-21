@@ -8,7 +8,7 @@ INCLUDE = includes/
 
 MLX_LIB = libmlx_Linux.a
 
-CC = gcc -Wall -Wextra -Werror -g
+CC = cc -Wall -Wextra -Werror -g
 MLX_FLAGS = -lX11 -lXext
 
 SRCS = so_long.c map_check.c map_check2.c /gnl/get_next_line_utils.c  /gnl/get_next_line.c  move_player.c files_func.c\
@@ -24,19 +24,19 @@ BONUS_MODE = 0
 %.o: %.c
 		$(CC) $(CFLAGS) -c $< -o $@ -I includes/ -D BONUS_MODE=$(BONUS_MODE)
 
-all: mlx $(NAME)
+all: $(NAME)
 
-mlx:
+$(MLX_DIR)$(MLX_LIB):
 	make -C $(MLX_DIR)
 
-$(NAME): $(OBJECTS)
+$(NAME): $(OBJECTS) $(MLX_DIR)$(MLX_LIB)
 		$(CC) $(CFLAGS) $(OBJECTS) $(MLX_DIR)$(MLX_LIB) $(MLX_FLAGS) -o $@ -I$(MLX_DIR) -I$(INCLUDE)
 
-$(NAME_BONUS): $(OBJECTS) $(OBJECTS_BONUS)
+$(NAME_BONUS): $(OBJECTS) $(OBJECTS_BONUS) $(MLX_DIR)$(MLX_LIB)
 		$(CC) $(CFLAGS) $(OBJECTS) $(OBJECTS_BONUS) $(MLX_DIR)$(MLX_LIB) $(MLX_FLAGS) -o so_long -I$(MLX_DIR) -I$(INCLUDE)
 
 bonus: BONUS_MODE = 1
-bonus: mlx $(NAME_BONUS)
+bonus: $(NAME_BONUS)
 
 clean:
 		rm -rf $(OBJECTS) $(OBJECTS_BONUS)
